@@ -1,0 +1,13 @@
+{
+  "name": "study-tracker-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@azure/cosmos": "^4.2.0",
+    "uuid": "^9.0.1"
+  },
+  "scripts": {
+    "start": "func start"
+  }
+}
