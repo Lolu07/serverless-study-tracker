@@ -113,7 +113,7 @@ resource func 'Microsoft.Web/sites@2022-09-01' = {
         { name: 'WEBSITE_RUN_FROM_PACKAGE', value: '1' }
 
         // Storage for Functions
-        { name: 'AzureWebJobsStorage', value: 'DefaultEndpointsProtocol=https;AccountName=${storage.name};AccountKey=${storage.listKeys().keys[0].value};EndpointSuffix=core.windows.net' }
+        { name: 'AzureWebJobsStorage', value: 'DefaultEndpointsProtocol=https;AccountName=${storage.name};AccountKey=${listKeys(storage.id, storage.apiVersion).keys[0].value};EndpointSuffix=core.windows.net' }
 
         // Cosmos settings (used by your app code)
         { name: 'COSMOS_ENDPOINT', value: cosmos.properties.documentEndpoint }
@@ -136,3 +136,5 @@ output cosmosAccountName string = cosmos.name
 output cosmosEndpoint string = cosmos.properties.documentEndpoint
 output storageAccountName string = storage.name
 output appInsightsName string = appInsights.name
+
+
