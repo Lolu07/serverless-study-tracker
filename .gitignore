@@ -1,1 +1,8 @@
 .DS_Store
+node_modules/
+**/node_modules/
+local.settings.json
+api/local.settings.json
+npm-debug.log*
+.env
+
