@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serverless Study Tracker</title>
+  <style>
+    body{font-family:system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin:20px; max-width:860px}
+    header{display:flex; justify-content:space-between; align-items:center}
+    form, .card{border:1px solid #ddd; border-radius:10px; padding:14px; margin:10px 0}
+    input, select, textarea, button{padding:8px; margin:4px 0}
+    label{display:block; font-weight:600}
+    .row{display:flex; gap:12px; flex-wrap:wrap}
+    .row > div{flex:1 1 200px}
+    table{width:100%; border-collapse:collapse}
+    th, td{border-bottom:1px solid #eee; padding:8px; text-align:left}
+    .muted{color:#777}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Serverless Study Tracker</h1>
+    <small class="muted">Azure Static Web Apps + Functions + Cosmos DB</small>
+  </header>
+
+  <section class="card">
+    <h2>Log a session</h2>
+    <form id="sessionForm">
+      <div class="row">
+        <div>
+          <label>Course</label>
+          <input name="course" required placeholder="CSCI 333" />
+        </div>
+        <div>
+          <label>Topic</label>
+          <input name="topic" required placeholder="Cache & memory" />
+        </div>
+        <div>
+          <label>Minutes</label>
+          <input type="number" min="1" name="minutes" required />
+        </div>
+        <div>
+          <label>Mood</label>
+          <select name="mood">
+            <option>🙂</option><option>😐</option><option>😫</option>
+          </select>
+        </div>
+      </div>
+      <label>Notes</label>
+      <textarea name="notes" rows="2" placeholder="What did you learn?"></textarea>
+      <button type="submit">Save session</button>
+      <span id="saveStatus" class="muted"></span>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>This week</h2>
+    <button id="refresh">Refresh</button>
+    <div id="summary" class="muted">No data yet.</div>
+  </section>
+
+  <section class="card">
+    <h2>Recent sessions</h2>
+    <table>
+      <thead><tr><th>When</th><th>Course</th><th>Topic</th><th>Minutes</th><th>Mood</th></tr></thead>
+      <tbody id="sessionsTbody"></tbody>
+    </table>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
