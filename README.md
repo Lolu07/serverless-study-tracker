@@ -26,5 +26,3 @@ This project demonstrates a fully serverless architecture for efficient resource
 | Auth/Storage | Azure Active Directory & Blob Storage (optional) |
 
 ---
-
-## 🧩 Architecture Overview
